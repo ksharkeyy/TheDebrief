@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations | Empowering Young Women</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gratitude.html">Daily Gratitude</a></li>
+                <li><a href="advice.html">Advice Blog</a></li>
+                <li><a href="study.html">Study Corner</a></li>
+                <li><a href="recommendations.html">Recommendations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Recommendations</h1>
+        <section id="clothing-brands">
+            <h2>Clothing Brands</h2>
+            <ul>
+                <li>Brand 1 - Description</li>
+                <li>Brand 2 - Description</li>
+                <li>Brand 3 - Description</li>
+            </ul>
+        </section>
+
+        <section id="podcasts">
+            <h2>Podcasts</h2>
+            <ul>
+                <li>Podcast 1 - Description</li>
+                <li>Podcast 2 - Description</li>
+                <li>Podcast 3 - Description</li>
+            </ul>
+        </section>
+
+        <section id="books">
+            <h2>Books</h2>
+            <ul>
+                <li>Book 1 - Author</li>
+                <li>Book 2 - Author</li>
+                <li>Book 3 - Author</li>
+            </ul>
+        </section>
+
+        <section id="movies">
+            <h2>Movies</h2>
+            <ul>
+                <li>Movie 1 - Year</li>
+                <li>Movie 2 - Year</li>
+                <li>Movie 3 - Year</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Empowering Young Women. All rights reserved.</p>
+    </footer>
+</body>
+</html>
