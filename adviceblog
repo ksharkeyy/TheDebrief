@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advice Blog | Empowering Young Women</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gratitude.html">Daily Gratitude</a></li>
+                <li><a href="advice.html">Advice Blog</a></li>
+                <li><a href="study.html">Study Corner</a></li>
+                <li><a href="recommendations.html">Recommendations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Advice Blog</h1>
+        <section id="featured-article">
+            <h2>Featured Article</h2>
+            <article>
+                <h3>5 Tips for Building Self-Confidence</h3>
+                <p>In this article, we explore practical ways to boost your self-confidence...</p>
+                <a href="#">Read More</a>
+            </article>
+        </section>
+
+        <section id="article-list">
+            <h2>Recent Articles</h2>
+            <ul>
+                <li><a href="#">Navigating Your First Relationship</a></li>
+                <li><a href="#">Finding Your Personal Style</a></li>
+                <li><a href="#">Dealing with Peer Pressure</a></li>
+                <li><a href="#">Planning for Your Future</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Empowering Young Women. All rights reserved.</p>
+    </footer>
+</body>
+</html>
