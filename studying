@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Corner | Empowering Young Women</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="study.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gratitude.html">Daily Gratitude</a></li>
+                <li><a href="advice.html">Advice Blog</a></li>
+                <li><a href="study.html">Study Corner</a></li>
+                <li><a href="recommendations.html">Recommendations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Study Corner</h1>
+        <section id="study-timer">
+            <h2>Study Timer</h2>
+            <div id="timer-display">25:00</div>
+            <button id="start-timer">Start</button>
+            <button id="reset-timer">Reset</button>
+        </section>
+
+        <section id="todo-list">
+            <h2>To-Do List</h2>
+            <form id="todo-form">
+                <input type="text" id="todo-input" placeholder="Add a task..." required>
+                <button type="submit">Add</button>
+            </form>
+            <ul id="todo-items"></ul>
+        </section>
+
+        <section id="weekly-calendar">
+            <h2>Weekly Calendar</h2>
+            <!-- Add a simple calendar here or integrate with a calendar library -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Empowering Young Women. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+// study.js
+document.addEventListener('DOMContentLoaded', () => {
+    // Study Timer
+    const timerDisplay = document.getElementById('timer-display');
+    const startButton = document.getElementById('start-timer');
+    const resetButton = document.getElementById('reset-timer');
+    let timer;
+    let timeLeft = 1500; // 25 minutes in seconds
+
+    function updateTimerDisplay() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function startTimer() {
+        timer = setInterval(() => {
+            timeLeft--;
+            updateTimerDisplay();
+            if (timeLeft === 0) {
+                clearInterval(timer);
+                alert('Study session complete! Take a break.');
+            }
+        }, 1000);
+        startButton.disabled = true;
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        timeLeft = 1500;
+        updateTimerDisplay();
+        startButton.disabled = false;
+    }
+
+    startButton.addEventListener('click', startTimer);
+    resetButton.addEventListener('click', resetTimer);
+
+    // To-Do List
+    const todoForm = document.getElementById('todo-form');
+    const todoInput = document.getElementById('todo-input');
+    const todoItems = document.getElementById('todo-items');
+
+    todoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const taskText = todoInput.value.trim();
+        if (taskText) {
+            addTodoItem(taskText);
+            todoInput.value = '';
+        }
+    });
+
+    function addTodoItem(text) {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${text}
+            <button class="delete-todo">Delete</button>
+        `;
+        li.querySelector('.delete-todo').addEventListener('click', () => {
+            li.remove();
+        });
+        todoItems.appendChild(li);
+    }
+});
