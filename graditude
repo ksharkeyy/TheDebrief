@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Gratitude | Empowering Young Women</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gratitude.html">Daily Gratitude</a></li>
+                <li><a href="advice.html">Advice Blog</a></li>
+                <li><a href="study.html">Study Corner</a></li>
+                <li><a href="recommendations.html">Recommendations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Daily Gratitude</h1>
+        <section id="gratitude-entry">
+            <h2>What are you grateful for today?</h2>
+            <form id="gratitude-form">
+                <input type="text" id="gratitude-input" placeholder="I'm grateful for..." required>
+                <button type="submit">Add Entry</button>
+            </form>
+        </section>
+
+        <section id="gratitude-collection">
+            <h2>Your Gratitude Collection</h2>
+            <ul id="gratitude-list"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Empowering Young Women. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const gratitudeForm = document.getElementById('gratitude-form');
+    const gratitudeList = document.getElementById('gratitude-list');
+
+    gratitudeForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const gratitudeInput = document.getElementById('gratitude-input');
+        const gratitudeText = gratitudeInput.value.trim();
+
+        if (gratitudeText) {
+            addGratitudeEntry(gratitudeText);
+            gratitudeInput.value = '';
+        }
+    });
+
+    function addGratitudeEntry(text) {
+        const li = document.createElement('li');
+        li.textContent = text;
+        gratitudeList.appendChild(li);
+
+        // Store in local storage
+        const entries = JSON.parse(localStorage.getItem('gratitudeEntries') || '[]');
+        entries.push({ text, date: new Date().toISOString() });
+        localStorage.setItem('gratitudeEntries', JSON.stringify(entries));
+    }
+
+    // Load existing entries
+    const entries = JSON.parse(localStorage.getItem('gratitudeEntries') || '[]');
+    entries.forEach(entry => {
+        const li = document.createElement('li');
+        li.textContent = `${new Date(entry.date).toLocaleDateString()}: ${entry.text}`;
+        gratitudeList.appendChild(li);
+    });
+});
